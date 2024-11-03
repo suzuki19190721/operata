@@ -1,0 +1,11 @@
+[project]
+name = "operata"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flet>=0.24.1",
+    "pyautogui>=0.9.54",
+    "pynput>=1.7.7",
+]
