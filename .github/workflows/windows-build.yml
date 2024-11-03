@@ -1,0 +1,50 @@
+name: Windows Build
+
+on:
+  # Runs on push to any of the below branches
+  push:
+    branches:
+      - master
+      - main
+  # Runs on pull request events that target one of the below branches
+  pull_request:
+    branches:
+      - master
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab of the repository
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: python
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+  
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+  
+      - name: Flet Build Windows
+        run: uv run flet build windows
+  
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4.4.3  # https://github.com/marketplace/actions/upload-a-build-artifact
+        with:
+          name: windows-build-artifact  # the name of the artifact
+          path: build/windows  # location of Flet build output
+          if-no-files-found: error  # Fail the action with an error message if no files are found
+          overwrite: false  # If true, an artifact with a matching name will be deleted before a new one is uploaded. If false, the action will fail if an artifact for the given name already exists. Does not fail if the artifact does not exist.
+
