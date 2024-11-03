@@ -41,7 +41,7 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Flet Build MacOS
-        run: flet build macos
+        run: uv run flet build macos
         
       - name: Upload macOS Artifact
         uses: actions/upload-artifact@v4.4.3  # https://github.com/marketplace/actions/upload-a-build-artifact
