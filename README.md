@@ -45,3 +45,6 @@ You need to grant screen access permissions for the environment you’re using.
 
 - If running in the terminal, allow terminal access.
 - If using VS Code, grant access to VS Code.
+
+## Workflow
+https://github.com/ndonkoHenri/flet-github-action-workflows/tree/main/.github/workflows
