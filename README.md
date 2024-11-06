@@ -1,4 +1,8 @@
+## Demo
+![operata](./operata.gif)
+
 ## Features
+
 - Record Keyboard and Mouse Inputs: Capture PC inputs from keyboard and mouse operations in real time.
 - Reset: Clears all recorded operations, allowing you to start a fresh recording session.
 - Run Recorded Operations: Run the recorded sequence of operations as an automated task.
@@ -47,4 +51,5 @@ You need to grant screen access permissions for the environment you’re using.
 - If using VS Code, grant access to VS Code.
 
 ## Workflow
+
 https://github.com/ndonkoHenri/flet-github-action-workflows/tree/main/.github/workflows
